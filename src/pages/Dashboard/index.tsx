@@ -31,18 +31,19 @@ export interface Provider {
 const Dashboard: React.FC = () => {
   const [providers, setProviders] = useState<Provider[]>([]);
 
-  const { user } = useAuth();
+  const { signOut, user } = useAuth();
   const { navigate } = useNavigation();
 
   useEffect(() => {
-    api.get('/providers').then(response => {
+    api.get('providers').then(response => {
       setProviders(response.data);
     });
   }, []);
 
   const navigateToProfile = useCallback(() => {
-    navigate('Profile');
-  }, [navigate]);
+    // navigate('Profile');
+    signOut();
+  }, [signOut]);
 
   const navigateToCreateAppointment = useCallback(
     (providerId: string) => {
@@ -80,24 +81,18 @@ const Dashboard: React.FC = () => {
           <ProviderContainer
             onPress={() => navigateToCreateAppointment(provider.id)}
           >
-            <ProviderAvatar
-              source={{
-                uri:
-                  provider.avatar_url ||
-                  'https://api.adorable.io/avatars/72/abott@adorable.png',
-              }}
-            />
+            <ProviderAvatar source={{ uri: provider.avatar_url }} />
 
             <ProviderInfo>
               <ProviderName>{provider.name}</ProviderName>
 
               <ProviderMeta>
-                <Icon name="calendar" size={14} />
-                <ProviderMetaText>Segunda à Sexta</ProviderMetaText>
+                <Icon name="calendar" size={14} color="#ff9000" />
+                <ProviderMetaText>Segunda à sexta</ProviderMetaText>
               </ProviderMeta>
 
               <ProviderMeta>
-                <Icon name="clock" size={14} />
+                <Icon name="clock" size={14} color="#ff9000" />
                 <ProviderMetaText>8h às 18h</ProviderMetaText>
               </ProviderMeta>
             </ProviderInfo>
