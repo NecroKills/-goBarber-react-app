@@ -70,19 +70,22 @@ const Dashboard: React.FC = () => {
           />
         </ProfileButton>
       </Header>
-
       <ProvidersList
         data={providers}
-        keyExtractor={provider => provider.id}
         ListHeaderComponent={
           <ProvidersListTitle>Cabeleireiros</ProvidersListTitle>
         }
+        contentContainerStyle={{
+          paddingTop: 32,
+          paddingBottom: 16,
+          padding: 24,
+        }}
+        keyExtractor={provider => provider.id}
         renderItem={({ item: provider }) => (
           <ProviderContainer
             onPress={() => navigateToCreateAppointment(provider.id)}
           >
             <ProviderAvatar source={{ uri: provider.avatar_url }} />
-
             <ProviderInfo>
               <ProviderName>{provider.name}</ProviderName>
 

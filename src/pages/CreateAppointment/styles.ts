@@ -46,9 +46,7 @@ export const ProvidersListContainer = styled.View`
   height: 112px;
 `;
 
-export const ProvidersList = styled(FlatList as new () => FlatList<Provider>)`
-  padding: 32px 24px;
-`;
+export const ProvidersList = styled(FlatList as new () => FlatList<Provider>)``;
 
 export const ProviderContainer = styled(RectButton)<ProviderContainerProps>`
   background: ${props => (props.selected ? '#ff9000' : '#3e4b47')};

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { useAuth } from '../../hooks/auth';
 
 import {
@@ -74,6 +75,12 @@ const CreateAppointment: React.FC = () => {
         <ProvidersList
           data={providers}
           horizontal
+          contentContainerStyle={{
+            paddingTop: 32,
+            paddingBottom: 32,
+            paddingLeft: 24,
+            paddingRight: 24,
+          }}
           showsHorizontalScrollIndicator={false}
           keyExtractor={provider => provider.id}
           renderItem={({ item: provider }) => (
@@ -95,6 +102,8 @@ const CreateAppointment: React.FC = () => {
           )}
         />
       </ProvidersListContainer>
+
+      {/* <DateTimePicker value={new Date()} /> */}
     </Container>
   );
 };
