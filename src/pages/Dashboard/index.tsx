@@ -19,6 +19,7 @@ import {
   ProviderName,
   ProviderMeta,
   ProviderMetaText,
+  Logoff,
 } from './styles';
 import api from '../../services/api';
 
@@ -31,7 +32,7 @@ export interface Provider {
 const Dashboard: React.FC = () => {
   const [providers, setProviders] = useState<Provider[]>([]);
 
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const { navigate } = useNavigation();
 
   useEffect(() => {
@@ -43,6 +44,10 @@ const Dashboard: React.FC = () => {
   const navigateToProfile = useCallback(() => {
     navigate('Profile');
   }, [navigate]);
+
+  const navigateToLogon = useCallback(() => {
+    signOut();
+  }, [signOut]);
 
   const navigateToCreateAppointment = useCallback(
     (providerId: string) => {
@@ -57,6 +62,7 @@ const Dashboard: React.FC = () => {
         <HeaderTitle>
           Bem vindo, {'\n'}
           <UserName>{user.name}</UserName>
+          <Logoff onPress={navigateToLogon}>{'\n'}Sair</Logoff>
         </HeaderTitle>
 
         <ProfileButton onPress={navigateToProfile}>

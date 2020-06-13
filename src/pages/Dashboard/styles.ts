@@ -84,3 +84,9 @@ export const ProviderMetaText = styled.Text`
   margin-left: 8px;
   font-family: 'RobotoSlab-Medium';
 `;
+
+export const Logoff = styled.Text`
+  color: #999591;
+  margin-left: 8px;
+  font-family: 'RobotoSlab-Medium';
+`;
