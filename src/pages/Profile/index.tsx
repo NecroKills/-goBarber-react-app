@@ -145,11 +145,13 @@ const Profile: React.FC = () => {
 
         const data = new FormData();
 
-        data.append('avatar', {
+        const file = {
           uri: responseImage.uri,
-          type: 'image/jpeg',
           name: `${user.id}.jpg`,
-        });
+          type: 'image/jpeg',
+        };
+
+        data.append('avatar', file as any);
 
         api.patch('users/avatar', data).then(response => {
           updateUser(response.data);
