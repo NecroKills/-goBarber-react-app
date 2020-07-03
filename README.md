@@ -20,6 +20,7 @@
 ## 💇🏻‍♂️ About the project
 
 Gobarber project developed during GoStack 11 rocketseat bootCamp</br>
+FIGMA, click here:  [FIGMA](https://www.figma.com/file/BXCihtXXh9p37lGsENV614/GoBarber?node-id=0%3A1)</br>
 To see the **api**, click here: [GoBarber Rest API](https://github.com/NecroKills/goBarber-api-node)</br>
 To see the **web client**, click here: [GoBarber Web](https://github.com/NecroKills/goBarber-react-webb)
 
